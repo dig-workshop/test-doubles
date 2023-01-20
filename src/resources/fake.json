@@ -1,0 +1,136 @@
+{
+  "publicTime": "2023-01-20T11:00:00+09:00",
+  "publicTimeFormatted": "2023/01/20 11:00:00",
+  "publishingOffice": "名古屋地方気象台",
+  "title": "愛知県 名古屋 の天気",
+  "link": "https://www.jma.go.jp/bosai/forecast/#area_type=offices&area_code=230000",
+  "description": {
+    "publicTime": "2023-01-20T10:38:00+09:00",
+    "publicTimeFormatted": "2023/01/20 10:38:00",
+    "headlineText": "",
+    "bodyText": "　東海地方は高気圧に覆われています。一方、日本海には低気圧があって東へ進んでいます。\n\n　東海地方は、おおむね晴れています。\n\n　２０日の東海地方は、高気圧に覆われておおむね晴れますが、寒気や前線の影響で昼過ぎからは雲が広がりやすく、岐阜県では雷を伴って雪や雨の降る所があるでしょう。\n\n　２１日の東海地方は、冬型の気圧配置となるためおおむね晴れますが、寒気や湿った空気の影響で雲が広がりやすく、岐阜県では明け方にかけて雪の降る所がある見込みです。",
+    "text": "　東海地方は高気圧に覆われています。一方、日本海には低気圧があって東へ進んでいます。\n\n　東海地方は、おおむね晴れています。\n\n　２０日の東海地方は、高気圧に覆われておおむね晴れますが、寒気や前線の影響で昼過ぎからは雲が広がりやすく、岐阜県では雷を伴って雪や雨の降る所があるでしょう。\n\n　２１日の東海地方は、冬型の気圧配置となるためおおむね晴れますが、寒気や湿った空気の影響で雲が広がりやすく、岐阜県では明け方にかけて雪の降る所がある見込みです。"
+  },
+  "forecasts": [
+    {
+      "date": "2023-01-20",
+      "dateLabel": "今日",
+      "telop": "晴れ",
+      "detail": {
+        "weather": "晴れ　夕方　から　くもり",
+        "wind": "北西の風　後　やや強く　海上　では　後　北西の風　強く",
+        "wave": "０．５メートル　後　１メートル"
+      },
+      "temperature": {
+        "min": {
+          "celsius": null,
+          "fahrenheit": null
+        },
+        "max": {
+          "celsius": "12",
+          "fahrenheit": "53.6"
+        }
+      },
+      "chanceOfRain": {
+        "T00_06": "--%",
+        "T06_12": "--%",
+        "T12_18": "10%",
+        "T18_24": "10%"
+      },
+      "image": {
+        "title": "晴のち曇",
+        "url": "https://www.jma.go.jp/bosai/forecast/img/110.svg",
+        "width": 80,
+        "height": 60
+      }
+    },
+    {
+      "date": "2023-01-21",
+      "dateLabel": "明日",
+      "telop": "雨",
+      "detail": {
+        "weather": "雨",
+        "wind": "北西の風　海上　では　北西の風　やや強く",
+        "wave": "１メートル　後　０．５メートル"
+      },
+      "temperature": {
+        "min": {
+          "celsius": "1",
+          "fahrenheit": "33.8"
+        },
+        "max": {
+          "celsius": "9",
+          "fahrenheit": "48.2"
+        }
+      },
+      "chanceOfRain": {
+        "T00_06": "0%",
+        "T06_12": "0%",
+        "T12_18": "0%",
+        "T18_24": "0%"
+      },
+      "image": {
+        "title": "晴れ",
+        "url": "https://www.jma.go.jp/bosai/forecast/img/100.svg",
+        "width": 80,
+        "height": 60
+      }
+    },
+    {
+      "date": "2023-01-22",
+      "dateLabel": "明後日",
+      "telop": "晴のち曇",
+      "detail": {
+        "weather": "晴れ　後　くもり",
+        "wind": "北の風",
+        "wave": "０．５メートル"
+      },
+      "temperature": {
+        "min": {
+          "celsius": "1",
+          "fahrenheit": "33.8"
+        },
+        "max": {
+          "celsius": "9",
+          "fahrenheit": "48.2"
+        }
+      },
+      "chanceOfRain": {
+        "T00_06": "10%",
+        "T06_12": "10%",
+        "T12_18": "10%",
+        "T18_24": "10%"
+      },
+      "image": {
+        "title": "晴のち曇",
+        "url": "https://www.jma.go.jp/bosai/forecast/img/110.svg",
+        "width": 80,
+        "height": 60
+      }
+    }
+  ],
+  "location": {
+    "area": "中部",
+    "prefecture": "愛知県",
+    "district": "西部",
+    "city": "名古屋"
+  },
+  "copyright": {
+    "title": "(C) 天気予報 API（livedoor 天気互換）",
+    "link": "https://weather.tsukumijima.net/",
+    "image": {
+      "title": "天気予報 API（livedoor 天気互換）",
+      "link": "https://weather.tsukumijima.net/",
+      "url": "https://weather.tsukumijima.net/logo.png",
+      "width": 120,
+      "height": 120
+    },
+    "provider": [
+      {
+        "link": "https://www.jma.go.jp/jma/",
+        "name": "気象庁 Japan Meteorological Agency",
+        "note": "気象庁 HP にて配信されている天気予報を JSON データへ編集しています。"
+      }
+    ]
+  }
+}

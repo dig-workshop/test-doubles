@@ -4,7 +4,7 @@ export type FireResult = {
 }
 
 export type Missile = {
-    fire: () => FireResult | void
+    fire: () =>  Promise<FireResult> | FireResult | void
 }
 
 export type LaunchMissileSystem = {
@@ -18,9 +18,9 @@ export class LaunchMissileImpl implements LaunchMissileSystem {
         this.missile = missile
     }
 
-    launch() {
-        const launchResult = this.missile.fire()
-        return launchResult
+     launch() {
+        const fireResult = this.missile.fire()
+         return fireResult
     }
 
 }
