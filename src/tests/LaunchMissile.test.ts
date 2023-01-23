@@ -1,19 +1,11 @@
 import {LaunchMissileImpl} from "../LaunchMissile";
 import {DummyMissile} from "./missiles/DummyMissile";
-import {SpyMissile} from "./missiles/SpyMissile";
-import {StubFalseMissile, StubTrueMissile} from "./missiles/StubMissile";
-import {MockMissile} from "./missiles/MockMissile";
-import {FakeMissile} from "./missiles/FakeMissile";
 
-// Test Doubleは、テストの対象が他のモジュール（クラスや関数など）に依存している場合、
-// その代役として使われるモジュールのことです。
-// TestsDoublesの作成者であるGerardMeszarosによると、Test Doubleは5つのカテゴリに分類できます。
+// Test Doubleは、テストの対象が他のモジュール（クラスや関数など）に依存している場合、その代役として使われるモジュールのことです。
 describe('test doubles について', () => {
 
-
-
-    // ダミーオブジェクトは、受け渡されることはあるが実際に使用されることはない。
-    // パラメータリストを埋めたいだけといった場合に利用されることが多い。
+    // ダミーオブジェクトは、受け渡されることはあるが実際に使用されることはない。(使用した場合エラーを投げる)
+    // パラメータリストを埋めたいだけといった場合に利用される。
     describe('ダミーのテスト', () => {
         it('ミサイル発射装置にミサイルがセットできるかどうかテストしたい', () => {
             const dummyMissile = new DummyMissile()
@@ -23,106 +15,64 @@ describe('test doubles について', () => {
         });
     })
 
-
-
-    // スタブはテスト時の呼び出しに対して、あらかじめ用意された結果を返す。
+    // スタブはあらかじめ用意された固定値を返す。
     describe('スタブのテスト', () => {
-
         it('launch() して発射可能なミサイルの場合、発射することを確認したい', () => {
-            const stubTrueMissile = new StubTrueMissile()
-            const launchMissile = new LaunchMissileImpl(stubTrueMissile)
+            // ここにコードを記述して下さい
 
-            expect(launchMissile.launch()).toEqual({
-                name: "スタブミサイル",
-                result: "発射しました",
-            })
         });
 
         it('launch() して発射不可能なミサイルの場合、発射できないことを確認したい', () => {
-            const stubFalseMissile = new StubFalseMissile()
-            const launchMissile = new LaunchMissileImpl(stubFalseMissile)
+            // ここにコードを記述して下さい
 
-            expect(launchMissile.launch()).toEqual({
-                name: "スタブミサイル",
-                result: "発射できません",
-            })
         });
     })
 
-
-
+    // 依存コンポーネント（関数など）が呼ばれているかを記録する。
     describe('スパイのテスト', () => {
-
         it('launch() を実行した結果、fire() が呼ばれているか', () => {
-            const spyMissile = new SpyMissile()
-            const launchMissile = new LaunchMissileImpl(spyMissile)
+            // ここにコードを記述して下さい
 
-            launchMissile.launch()
+        });
 
-            expect(spyMissile.fire_isCalled).toBe(true)
+        // 下記テストはスタブと同じ内容の意味のテストだが、
+        // 実行結果が１０パターンある場合スタブでは１０パターン作成する必要がある。
+        // しかしスパイではテスト内で値セットすることで、その問題を解決できる。
+        it('launch() を実行した結果、ミサイルが発射できたか（スタブより柔軟に出来る）', () => {
+            // ここにコードを記述して下さい
+
         });
 
         it('launch() を実行した結果、ミサイルが発射できたか（スタブより柔軟に出来る）', () => {
-            const spyMissile = new SpyMissile()
-            spyMissile.result = {
-                name: "スパイミサイル",
-                result: "発射しました",
-            }
-            const launchMissile = new LaunchMissileImpl(spyMissile)
+            // ここにコードを記述して下さい
 
-            launchMissile.launch()
-
-            expect(launchMissile.launch()).toEqual({
-                name: "スパイミサイル",
-                result: "発射しました",
-            })
         });
     })
 
-
-
+    // 依存コンポーネント(関数など)の代品として動作し、リアルタイムにコンポーネントへのアクセスを検証するものです。
     describe('モックのテスト', () => {
-
         it('正しいpasswordが設定されている場合、ミサイルを発射する', () => {
-            const mockMissile = new MockMissile()
-            mockMissile.password = "black300"
+            // ここにコードを記述して下さい
 
-            const launchMissile = new LaunchMissileImpl(mockMissile)
-
-            expect(launchMissile.launch()).toEqual({
-                name: "モックミサイル",
-                result: "発射しました",
-            })
         });
 
         it('正しくないpasswordが設定されている場合、ミサイルを発射しない', () => {
-            const mockMissile = new MockMissile()
-            mockMissile.password = "white200"
+            // ここにコードを記述して下さい
 
-            const launchMissile = new LaunchMissileImpl(mockMissile)
-
-            expect(launchMissile.launch()).toEqual({
-                name: "モックミサイル",
-                result: "発射できません",
-            })
         });
     })
 
+    // 依存コンポーネント(関数など)の代品として動作し、本物のコンポーネントと同等の挙動をするものです。
+    // ただし、テストスパイやモックオブジェクトとは異なり、フェイクオブジェクトは「検証」のために使用するものではありません。
 
-    // フェイクオブジェクトは実際に動作するよう実装されてはいるが、
-    // 手抜きがされているので製品版には向かない（InMemoryDatabaseが良い例である）。
+    // フェイクオブジェクトは次のようなときに使用するものです。
+    // 本物のコンポーネントが未実装でまだ利用できない
+    // 本物のコンポーネントを使うとデータの変更や削除等の望ましくない副作用が発生する
+    // 本物のコンポーネントを使うとテストが大幅に遅くなる
     describe('フェイクのテスト', () => {
-
         it('正しいpasswordが設定されており、天気APIの結果が雨以外ならミサイルを発射する', async () => {
-            const fakeMissile = new FakeMissile()
-            fakeMissile.password = "black300"
+            // ここにコードを記述して下さい
 
-            const launchMissile = new LaunchMissileImpl(fakeMissile)
-
-            expect(launchMissile.launch()).toEqual({
-                name: "フェイクミサイル",
-                result: "発射しました",
-            })
         });
     })
 })

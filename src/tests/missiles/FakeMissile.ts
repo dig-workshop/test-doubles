@@ -3,8 +3,8 @@ import fakeJson from '../../resources/fake.json'
 
 export class FakeMissile implements Missile {
     password = ""
-    trueResult:FireResult = {name:"フェイクミサイル",result:"発射しました"}
-    falseResult:FireResult = {name:"フェイクミサイル",result:"発射できません"}
+    trueResult: FireResult = {name: "フェイクミサイル", result: "発射しました"}
+    falseResult: FireResult = {name: "フェイクミサイル", result: "発射できません"}
 
     fire(): FireResult {
 

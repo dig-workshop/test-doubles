@@ -6,7 +6,7 @@ import {LaunchMissileImpl} from "./LaunchMissile";
 // どうしたら発射できるのかどんな準備がいるのか説明しておく
 // 本物ミサイルを使ってLaunchMissileImplのテストをすると実際にミサイルが飛んじゃう
 function App() {
-    async function launchButtonClick () {
+    async function launchButtonClick() {
         // ミサイルの準備
         const realMissile = new RealMissile()
         realMissile.password = "black300"
@@ -30,7 +30,8 @@ function App() {
 
     return (
         <div className="app">
-            <iframe className="iframe" id="missileR18" width="560" height="315" src="https://www.youtube.com/embed/dBj3l7lXd7w"
+            <iframe className="iframe" id="missileR18" width="560" height="315"
+                    src="https://www.youtube.com/embed/dBj3l7lXd7w"
                     title="YouTube video player" frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen hidden={true}></iframe>
@@ -38,7 +39,7 @@ function App() {
             {/*        title="YouTube video player" frameBorder="0"*/}
             {/*        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"*/}
             {/*        allowFullScreen></iframe>*/}
-            <a id="button" onClick={launchButtonClick}　className="btn-emergency-real">
+            <a id="button" onClick={launchButtonClick} className="btn-emergency-real">
                 <span className="btn-emergency-real-bottom"></span>
                 <span className="btn-emergency-real-top"><span>発射</span></span>
             </a>
