@@ -1,4 +1,4 @@
-import {FireResult, Missile} from "../LaunchMissile";
+import {FireResult, Missile} from "./LaunchMissile";
 
 export class RealMissile implements Missile {
     password = ""

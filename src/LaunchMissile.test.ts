@@ -1,33 +1,20 @@
 import {LaunchMissileImpl} from "./LaunchMissile";
-import {DummyMissile} from "./missiles/DummyMissile";
-import {RealMissile} from "./missiles/RealMissile";
-import {SpyMissile} from "./missiles/SpyMissile";
-import {StubFalseMissile, StubTrueMissile} from "./missiles/StubMissile";
-import {MockMissile} from "./missiles/MockMissile";
-import {FakeMissile} from "./missiles/FakeMissile";
+import {DummyMissile} from "./testDoublesMissiles/DummyMissile";
+import {SpyMissile} from "./testDoublesMissiles/SpyMissile";
+import {StubFalseMissile, StubTrueMissile} from "./testDoublesMissiles/StubMissile";
+import {MockMissile} from "./testDoublesMissiles/MockMissile";
+import {FakeMissile} from "./testDoublesMissiles/FakeMissile";
 
 // Test Doubleは、テストの対象が他のモジュール（クラスや関数など）に依存している場合、
 // その代役として使われるモジュールのことです。
 // TestsDoublesの作成者であるGerardMeszarosによると、Test Doubleは5つのカテゴリに分類できます。
 describe('test doubles について', () => {
 
-    // 本物ミサイルを使ってLaunchMissileImplのテストをすると実際にミサイルが飛んじゃう
-    it('本物のミサイルの場合', async () => {
-        const realMissile = new RealMissile()
-        realMissile.password = "black300"
-        const launchMissile = new LaunchMissileImpl(realMissile)
-
-        expect(await launchMissile.launch()).toEqual({
-            name: "本物のミサイル",
-            result: "発射しました"
-        })
-    });
-
 
 
     // ダミーオブジェクトは、受け渡されることはあるが実際に使用されることはない。
     // パラメータリストを埋めたいだけといった場合に利用されることが多い。
-    describe('ダミーののテスト', () => {
+    describe('ダミーのテスト', () => {
         it('ミサイル発射装置にミサイルがセットできるかどうかテストしたい', () => {
             const dummyMissile = new DummyMissile()
             const launchMissile = new LaunchMissileImpl(dummyMissile)
