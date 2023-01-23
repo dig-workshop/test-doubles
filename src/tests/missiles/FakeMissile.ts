@@ -1,5 +1,5 @@
-import {FireResult, Missile} from "../LaunchMissile";
-import fakeJson from '../resources/fake.json'
+import {FireResult, Missile} from "../../LaunchMissile";
+import fakeJson from '../../resources/fake.json'
 
 export class FakeMissile implements Missile {
     password = ""

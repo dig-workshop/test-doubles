@@ -1,9 +1,9 @@
-import {LaunchMissileImpl} from "./LaunchMissile";
-import {DummyMissile} from "./testDoublesMissiles/DummyMissile";
-import {SpyMissile} from "./testDoublesMissiles/SpyMissile";
-import {StubFalseMissile, StubTrueMissile} from "./testDoublesMissiles/StubMissile";
-import {MockMissile} from "./testDoublesMissiles/MockMissile";
-import {FakeMissile} from "./testDoublesMissiles/FakeMissile";
+import {LaunchMissileImpl} from "../LaunchMissile";
+import {DummyMissile} from "./missiles/DummyMissile";
+import {SpyMissile} from "./missiles/SpyMissile";
+import {StubFalseMissile, StubTrueMissile} from "./missiles/StubMissile";
+import {MockMissile} from "./missiles/MockMissile";
+import {FakeMissile} from "./missiles/FakeMissile";
 
 // Test Doubleは、テストの対象が他のモジュール（クラスや関数など）に依存している場合、
 // その代役として使われるモジュールのことです。

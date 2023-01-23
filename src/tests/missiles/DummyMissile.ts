@@ -1,4 +1,4 @@
-import {Missile} from "../LaunchMissile";
+import {Missile} from "../../LaunchMissile";
 
 export class DummyMissile implements Missile {
 
