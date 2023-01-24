@@ -1,13 +1,13 @@
-import {FireResult, Missile} from "../../LaunchMissile";
+import {Missile} from "../../LaunchMissile";
 
 export class MockMissile implements Missile {
     password = ""
 
-    fire(): FireResult {
+    fire(): boolean {
         if (this.password === "black300") {
-            return {name: "モックミサイル", result: "発射しました"}
+
         } else {
-            return {name: "モックミサイル", result: "発射できません"}
+
         }
     }
 }

@@ -1,10 +1,10 @@
-import {FireResult, Missile} from "../../LaunchMissile";
+import {Missile} from "../../LaunchMissile";
 
 export class AnswerSpyMissile implements Missile {
-    result: FireResult = {name: "", result: undefined}
+    result: boolean = false
     fire_isCalled = false
 
-    fire(): FireResult {
+    fire(): boolean {
         this.fire_isCalled = true
 
         return this.result

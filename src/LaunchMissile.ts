@@ -1,10 +1,5 @@
-export type FireResult = {
-    name: string
-    result: string | undefined
-}
-
 export type Missile = {
-    fire: () => Promise<FireResult> | FireResult | void
+    fire: () => Promise<boolean> | boolean | void
 }
 
 export type LaunchMissileSystem = {

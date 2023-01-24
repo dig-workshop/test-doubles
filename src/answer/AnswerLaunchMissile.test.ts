@@ -5,10 +5,10 @@ import {AnswerSpyMissile} from "./missiles/AnswerSpyMissile";
 import {AnswerStubFalseMissile, AnswerStubTrueMissile} from "./missiles/AnswerStubMissile";
 import {AnswerDummyMissile} from "./missiles/AnswerDummyMissile";
 
-xdescribe('test doubles について', () => {
+describe('test doubles について', () => {
 
     describe('ダミーのテスト', () => {
-        it('ミサイル発射装置にミサイルがセットできるかどうかテストしたい', () => {
+        it('LaunchMissileImpl（ミサイル発射装置）に DummyMissile（ダミーミサイル）をセットして発射した場合、発射結果が throw new Error("これはダミーミサイルです") になること', () => {
             const dummyMissile = new AnswerDummyMissile()
             const launchMissile = new LaunchMissileImpl(dummyMissile)
 
@@ -17,29 +17,23 @@ xdescribe('test doubles について', () => {
     })
 
     describe('スタブのテスト', () => {
-        it('launch() して発射可能なミサイルの場合、発射することを確認したい', () => {
+        it('LaunchMissileImpl（ミサイル発射装置）に StubTrueMissile（発射可能なミサイル）をセットして発射した場合、発射結果が true になること', () => {
             const stubTrueMissile = new AnswerStubTrueMissile()
             const launchMissile = new LaunchMissileImpl(stubTrueMissile)
 
-            expect(launchMissile.launch()).toEqual({
-                name: "スタブミサイル",
-                result: "発射しました",
-            })
+            expect(launchMissile.launch()).toEqual(true)
         });
 
-        it('launch() して発射不可能なミサイルの場合、発射できないことを確認したい', () => {
+        it('LaunchMissileImpl（ミサイル発射装置）に StubFalseMissile（発射不可能なミサイル）をセットして発射した場合、発射結果が false になること', () => {
             const stubFalseMissile = new AnswerStubFalseMissile()
             const launchMissile = new LaunchMissileImpl(stubFalseMissile)
 
-            expect(launchMissile.launch()).toEqual({
-                name: "スタブミサイル",
-                result: "発射できません",
-            })
+            expect(launchMissile.launch()).toEqual(false)
         });
     })
 
     describe('スパイのテスト', () => {
-        it('launch() を実行した結果、fire() が呼ばれているか', () => {
+        it('LaunchMissileImpl（ミサイル発射装置）に SpyMissile をセットして発射した場合、fire() が呼ばれていること', () => {
             const spyMissile = new AnswerSpyMissile()
             const launchMissile = new LaunchMissileImpl(spyMissile)
 
@@ -48,36 +42,24 @@ xdescribe('test doubles について', () => {
             expect(spyMissile.fire_isCalled).toBe(true)
         });
 
-        it('launch() を実行した結果、ミサイルが発射できたか（スタブより柔軟に出来る）', () => {
+        it('LaunchMissileImpl（ミサイル発射装置）に SpyMissile（発射可能なミサイル）をセットして発射した場合、発射結果が true になること', () => {
             const spyMissile = new AnswerSpyMissile()
-            spyMissile.result = {
-                name: "スパイミサイル",
-                result: "爆発しました",
-            }
+            spyMissile.result = true
             const launchMissile = new LaunchMissileImpl(spyMissile)
 
             launchMissile.launch()
 
-            expect(launchMissile.launch()).toEqual({
-                name: "スパイミサイル",
-                result: "爆発しました",
-            })
+            expect(launchMissile.launch()).toEqual(true)
         });
 
-        it('launch() を実行した結果、ミサイルが発射できたか（スタブより柔軟に出来る）', () => {
+        it('LaunchMissileImpl（ミサイル発射装置）に SpyMissile（発射不可能なミサイル）をセットして発射した場合、発射結果が false になること', () => {
             const spyMissile = new AnswerSpyMissile()
-            spyMissile.result = {
-                name: "スパイミサイル",
-                result: "爆発しませんでした",
-            }
+            spyMissile.result = false
             const launchMissile = new LaunchMissileImpl(spyMissile)
 
             launchMissile.launch()
 
-            expect(launchMissile.launch()).toEqual({
-                name: "スパイミサイル",
-                result: "爆発しませんでした",
-            })
+            expect(launchMissile.launch()).toEqual(false)
         });
     })
 
@@ -87,11 +69,10 @@ xdescribe('test doubles について', () => {
             mockMissile.password = "black300"
 
             const launchMissile = new LaunchMissileImpl(mockMissile)
+            launchMissile.launch()
 
-            expect(launchMissile.launch()).toEqual({
-                name: "モックミサイル",
-                result: "発射しました",
-            })
+            mockMissile.assertMethod()
+            // expect(launchMissile.launch()).toEqual(true)
         });
 
         it('正しくないpasswordが設定されている場合、ミサイルを発射しない', () => {
@@ -100,10 +81,7 @@ xdescribe('test doubles について', () => {
 
             const launchMissile = new LaunchMissileImpl(mockMissile)
 
-            expect(launchMissile.launch()).toEqual({
-                name: "モックミサイル",
-                result: "発射できません",
-            })
+            expect(launchMissile.launch()).toEqual(false)
         });
     })
 
@@ -114,10 +92,7 @@ xdescribe('test doubles について', () => {
 
             const launchMissile = new LaunchMissileImpl(fakeMissile)
 
-            expect(launchMissile.launch()).toEqual({
-                name: "フェイクミサイル",
-                result: "発射しました",
-            })
+            expect(launchMissile.launch()).toEqual(true)
         });
     })
 })

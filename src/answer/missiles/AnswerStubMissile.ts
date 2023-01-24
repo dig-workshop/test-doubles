@@ -1,19 +1,13 @@
-import {FireResult, Missile} from "../../LaunchMissile";
+import {Missile} from "../../LaunchMissile";
 
 export class AnswerStubTrueMissile implements Missile {
-    fire(): FireResult {
-        return {
-            name: "スタブミサイル",
-            result: "発射しました",
-        }
+    fire(): boolean {
+        return true
     }
 }
 
 export class AnswerStubFalseMissile implements Missile {
-    fire(): FireResult {
-        return {
-            name: "スタブミサイル",
-            result: "発射できません",
-        }
+    fire(): boolean {
+        return false
     }
 }
