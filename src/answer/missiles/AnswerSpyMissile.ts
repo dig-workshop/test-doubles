@@ -1,6 +1,6 @@
 import {FireResult, Missile} from "../../LaunchMissile";
 
-export class SpyMissile implements Missile {
+export class AnswerSpyMissile implements Missile {
     result: FireResult = {name: "", result: undefined}
     fire_isCalled = false
 

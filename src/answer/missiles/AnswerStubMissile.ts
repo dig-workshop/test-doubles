@@ -1,6 +1,6 @@
 import {FireResult, Missile} from "../../LaunchMissile";
 
-export class StubTrueMissile implements Missile {
+export class AnswerStubTrueMissile implements Missile {
     fire(): FireResult {
         return {
             name: "スタブミサイル",
@@ -9,7 +9,7 @@ export class StubTrueMissile implements Missile {
     }
 }
 
-export class StubFalseMissile implements Missile {
+export class AnswerStubFalseMissile implements Missile {
     fire(): FireResult {
         return {
             name: "スタブミサイル",

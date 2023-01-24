@@ -1,7 +1,7 @@
 import {FireResult, Missile} from "../../LaunchMissile";
 import fakeJson from '../../resources/fake.json'
 
-export class FakeMissile implements Missile {
+export class AnswerFakeMissile implements Missile {
     password = ""
     trueResult: FireResult = {name: "フェイクミサイル", result: "発射しました"}
     falseResult: FireResult = {name: "フェイクミサイル", result: "発射できません"}

@@ -1,6 +1,6 @@
 import {FireResult, Missile} from "../../LaunchMissile";
 
-export class MockMissile implements Missile {
+export class AnswerMockMissile implements Missile {
     password = ""
 
     fire(): FireResult {

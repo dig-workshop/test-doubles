@@ -1,6 +1,6 @@
 import {Missile} from "../../LaunchMissile";
 
-export class DummyMissile implements Missile {
+export class AnswerDummyMissile implements Missile {
 
     fire(): void {
         throw new Error("これはダミーミサイルです")

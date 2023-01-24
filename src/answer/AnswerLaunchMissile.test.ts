@@ -1,15 +1,15 @@
-import {DummyMissile} from "../tests/missiles/DummyMissile";
 import {LaunchMissileImpl} from "../LaunchMissile";
-import {StubFalseMissile, StubTrueMissile} from "../tests/missiles/StubMissile";
-import {SpyMissile} from "../tests/missiles/SpyMissile";
-import {MockMissile} from "../tests/missiles/MockMissile";
-import {FakeMissile} from "../tests/missiles/FakeMissile";
+import {AnswerFakeMissile} from "./missiles/AnswerFakeMissile";
+import {AnswerMockMissile} from "./missiles/AnswerMockMissile";
+import {AnswerSpyMissile} from "./missiles/AnswerSpyMissile";
+import {AnswerStubFalseMissile, AnswerStubTrueMissile} from "./missiles/AnswerStubMissile";
+import {AnswerDummyMissile} from "./missiles/AnswerDummyMissile";
 
 xdescribe('test doubles について', () => {
 
     describe('ダミーのテスト', () => {
         it('ミサイル発射装置にミサイルがセットできるかどうかテストしたい', () => {
-            const dummyMissile = new DummyMissile()
+            const dummyMissile = new AnswerDummyMissile()
             const launchMissile = new LaunchMissileImpl(dummyMissile)
 
             expect(() => launchMissile.launch()).toThrowError("これはダミーミサイルです")
@@ -18,7 +18,7 @@ xdescribe('test doubles について', () => {
 
     describe('スタブのテスト', () => {
         it('launch() して発射可能なミサイルの場合、発射することを確認したい', () => {
-            const stubTrueMissile = new StubTrueMissile()
+            const stubTrueMissile = new AnswerStubTrueMissile()
             const launchMissile = new LaunchMissileImpl(stubTrueMissile)
 
             expect(launchMissile.launch()).toEqual({
@@ -28,7 +28,7 @@ xdescribe('test doubles について', () => {
         });
 
         it('launch() して発射不可能なミサイルの場合、発射できないことを確認したい', () => {
-            const stubFalseMissile = new StubFalseMissile()
+            const stubFalseMissile = new AnswerStubFalseMissile()
             const launchMissile = new LaunchMissileImpl(stubFalseMissile)
 
             expect(launchMissile.launch()).toEqual({
@@ -40,7 +40,7 @@ xdescribe('test doubles について', () => {
 
     describe('スパイのテスト', () => {
         it('launch() を実行した結果、fire() が呼ばれているか', () => {
-            const spyMissile = new SpyMissile()
+            const spyMissile = new AnswerSpyMissile()
             const launchMissile = new LaunchMissileImpl(spyMissile)
 
             launchMissile.launch()
@@ -49,7 +49,7 @@ xdescribe('test doubles について', () => {
         });
 
         it('launch() を実行した結果、ミサイルが発射できたか（スタブより柔軟に出来る）', () => {
-            const spyMissile = new SpyMissile()
+            const spyMissile = new AnswerSpyMissile()
             spyMissile.result = {
                 name: "スパイミサイル",
                 result: "爆発しました",
@@ -65,7 +65,7 @@ xdescribe('test doubles について', () => {
         });
 
         it('launch() を実行した結果、ミサイルが発射できたか（スタブより柔軟に出来る）', () => {
-            const spyMissile = new SpyMissile()
+            const spyMissile = new AnswerSpyMissile()
             spyMissile.result = {
                 name: "スパイミサイル",
                 result: "爆発しませんでした",
@@ -83,7 +83,7 @@ xdescribe('test doubles について', () => {
 
     describe('モックのテスト', () => {
         it('正しいpasswordが設定されている場合、ミサイルを発射する', () => {
-            const mockMissile = new MockMissile()
+            const mockMissile = new AnswerMockMissile()
             mockMissile.password = "black300"
 
             const launchMissile = new LaunchMissileImpl(mockMissile)
@@ -95,7 +95,7 @@ xdescribe('test doubles について', () => {
         });
 
         it('正しくないpasswordが設定されている場合、ミサイルを発射しない', () => {
-            const mockMissile = new MockMissile()
+            const mockMissile = new AnswerMockMissile()
             mockMissile.password = "white200"
 
             const launchMissile = new LaunchMissileImpl(mockMissile)
@@ -109,7 +109,7 @@ xdescribe('test doubles について', () => {
 
     describe('フェイクのテスト', () => {
         it('正しいpasswordが設定されており、天気APIの結果が雨以外ならミサイルを発射する', async () => {
-            const fakeMissile = new FakeMissile()
+            const fakeMissile = new AnswerFakeMissile()
             fakeMissile.password = "black300"
 
             const launchMissile = new LaunchMissileImpl(fakeMissile)
