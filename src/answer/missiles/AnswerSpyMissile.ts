@@ -1,4 +1,4 @@
-import {Missile} from "../../LaunchMissile";
+import {Missile} from "../../Types";
 
 export class AnswerSpyMissile implements Missile {
     result: boolean = false

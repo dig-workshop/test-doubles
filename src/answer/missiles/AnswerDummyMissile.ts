@@ -1,8 +1,8 @@
-import {Missile} from "../../LaunchMissile";
+import {DummyMissile} from "../AnswerTypes";
 
-export class AnswerDummyMissile implements Missile {
+export class AnswerDummyMissile implements DummyMissile {
 
-    fire(): void {
+    passwordCheck(): void {
         throw new Error("これはダミーミサイルです")
     }
 }

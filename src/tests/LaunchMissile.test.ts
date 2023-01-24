@@ -1,5 +1,4 @@
-import {LaunchMissileImpl} from "../LaunchMissile";
-import {DummyMissile} from "./missiles/DummyMissile";
+
 
 // Test Doubleは、テストの対象が他のモジュール（クラスや関数など）に依存している場合、その代役として使われるモジュールのことです。
 describe('test doubles について', () => {
@@ -9,10 +8,10 @@ describe('test doubles について', () => {
     // ダミーオブジェクトはテスト対象の状況を作り出すのに便利ではありますが、テスト対象物がダミーオブジェクトを利用して動くわけではないというのがポイントです。
     describe('ダミーのテスト', () => {
         it('LaunchMissileImpl（ミサイル発射装置）に DummyMissile をセットして発射した場合、発射結果が throw new Error("これはダミーミサイルです") になること', () => {
-            const dummyMissile = new DummyMissile()
-            const launchMissile = new LaunchMissileImpl(dummyMissile)
+            // ここにコードを記述して下さい
 
-            expect(() => launchMissile.launch()).toThrowError("これはダミーミサイルです")
+            // throw error のexpectの例
+            // expect(() => launchMissile.launch()).toThrowError("これはダミーミサイルです")
         });
     })
 
@@ -59,14 +58,10 @@ describe('test doubles について', () => {
 // モックオブジェクトは対象の処理の途中にリアルタイムに検証を行います。
 // また、モックオブジェクトもテストスパイと同じくスタブの機能を併せ持っていることがあります。
     describe('モックのテスト', () => {
-        it('正しいpasswordが設定されている場合、ミサイルを発射する', () => {
+        it('LaunchMissileImpl（ミサイル発射装置）に MockMissile をセットして発射した場合、発射結果が false になること', () => {
             // ここにコードを記述して下さい
 
-        });
-
-        it('正しくないpasswordが設定されている場合、ミサイルを発射しない', () => {
-            // ここにコードを記述して下さい
-
+            // ここに expect を書いてはいけません
         });
     })
 
@@ -82,6 +77,5 @@ describe('test doubles について', () => {
 
         });
     })
-
 })
 

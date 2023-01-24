@@ -1,12 +1,6 @@
-import {Missile} from "../../LaunchMissile";
+import {Missile} from "../../Types";
 
 export class SpyMissile implements Missile {
-    result: boolean = false
-    fire_isCalled = false
+    // ここにコードを記述して下さい
 
-    fire(): boolean {
-        this.fire_isCalled = true
-
-        return this.result
-    }
 }

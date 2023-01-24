@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.css';
 import {RealMissile} from "./RealMissile";
-import {LaunchMissileImpl} from "./LaunchMissile";
+import {LaunchMissileImpl} from "./answer/AnswerLaunchMissile";
 
-// どうしたら発射できるのかどんな準備がいるのか説明しておく
-// 本物ミサイルを使ってLaunchMissileImplのテストをすると実際にミサイルが飛んじゃう
 function App() {
     async function launchButtonClick() {
-        // ミサイルの準備
+        // 本物のミサイルの準備
         const realMissile = new RealMissile()
         realMissile.password = "black300"
 
@@ -15,8 +13,8 @@ function App() {
         const launchMissile = new LaunchMissileImpl(realMissile)
         const launchResult = await launchMissile.launch()!
 
-        // 発射ムービー
-        if (launchResult.result === "発射しました") {
+        // 発射されたら発射ムービー
+        if (launchResult === true) {
             const missileVideo = document.getElementById("missileR18") as HTMLIFrameElement
             // const missileVideo = document.getElementById("missileR6") as HTMLIFrameElement
             missileVideo.src += '?autoplay=1';

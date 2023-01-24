@@ -1,9 +1,11 @@
-import {Missile} from "../../LaunchMissile";
+import {MockMissile} from "../../Types";
 
-export class AnswerMockMissile implements Missile {
+export class AnswerMockMissile implements MockMissile {
     password = ""
+    selfDestructionWasCalled = false
+    fireWasCalled = false
 
-    fire(): boolean {
+    passwordCheck(): boolean {
         if (this.password === "black300") {
             return true
         } else {
@@ -11,7 +13,23 @@ export class AnswerMockMissile implements Missile {
         }
     }
 
-    assertMethod(): void {
-        expect(this.password).toEqual("black300")
+    fire(): void {
+        this.fireWasCalled = true
+        this.checkedFire()
+    }
+
+    selfDestruction(): void {
+        this.selfDestructionWasCalled = true
+        this.checkedSelfDestruction()
+    }
+
+    checkedFire() {
+        expect(this.fireWasCalled).toBe(true)
+        expect(this.selfDestructionWasCalled).toBe(false)
+    }
+
+    checkedSelfDestruction() {
+        expect(this.fireWasCalled).toBe(false)
+        expect(this.selfDestructionWasCalled).toBe(true)
     }
 }

@@ -1,4 +1,4 @@
-import {Missile} from "../../LaunchMissile";
+import {Missile} from "../../Types";
 import fakeJson from '../../resources/fake.json'
 
 export class AnswerFakeMissile implements Missile {

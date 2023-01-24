@@ -1,8 +1,9 @@
-import {Missile} from "../../LaunchMissile";
+import {Missile} from "../../Types";
 
 export class DummyMissile implements Missile {
 
     fire(): void {
-        throw new Error("これはダミーミサイルです")
+        // ここにコードを記述して下さい
+
     }
 }

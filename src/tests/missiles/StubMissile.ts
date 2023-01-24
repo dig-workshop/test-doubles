@@ -1,13 +1,11 @@
-import {Missile} from "../../LaunchMissile";
+import {Missile} from "../../Types";
 
 export class StubTrueMissile implements Missile {
-    fire(): boolean {
-        return true
-    }
+    // ここにコードを記述して下さい
+
 }
 
 export class StubFalseMissile implements Missile {
-    fire(): boolean {
-        return false
-    }
+    // ここにコードを記述して下さい
+
 }
