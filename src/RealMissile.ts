@@ -16,6 +16,7 @@ export class RealMissile implements Missile {
         // 天気をAPIで取得
         const nowWeather = await fetch("https://weather.tsukumijima.net/api/forecast/city/230010")
             .then((response) => response.json()).then((user) => {
+                console.log(user.forecasts[0].telop)
                 return user.forecasts[0].telop
             })
 

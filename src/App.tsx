@@ -23,16 +23,39 @@ function App() {
             buttonElement.style.display = "none"
             const textElement = document.getElementById("buttonText") as HTMLButtonElement
             textElement.style.display = "none"
+        } else if ("自爆しました") {
+            const missileVideo = document.getElementById("destructionR12") as HTMLIFrameElement
+            missileVideo.src += '?autoplay=1';
+            missileVideo.hidden = false
+            const buttonElement = document.getElementById("button") as HTMLAnchorElement
+            buttonElement.style.display = "none"
+            const textElement = document.getElementById("buttonText") as HTMLButtonElement
+            textElement.style.display = "none"
         }
     }
 
     return (
         <div className="app">
-            <iframe className="iframe" id="missileR18" width="560" height="315"
+            <iframe className="iframe"
+                    id="missileR18"
+                    width="560"
+                    height="315"
                     src="https://www.youtube.com/embed/dBj3l7lXd7w"
                     title="YouTube video player" frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen hidden={true}></iframe>
+                    allowFullScreen
+                    hidden={true}>
+            </iframe>
+            <iframe className="iframe"
+                    id="destructionR12"
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/YpYaWSj_21g"
+                    title="YouTube video player" frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    hidden={true}>
+            </iframe>
             {/*<iframe className="iframe"  id="missileR6" width="560" height="315" src="https://www.youtube.com/embed/KGCEHeyX5zo?start=1"*/}
             {/*        title="YouTube video player" frameBorder="0"*/}
             {/*        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"*/}
