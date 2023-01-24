@@ -1,9 +1,9 @@
 export type Missile = {
     passwordCheck: () => string
-    fire: () => Promise<string>
+    fire: () => string
     selfDestruction: () => string
 }
 
 export type LaunchMissileSystem = {
-    launch: () => Promise<string> | string
+    launch: () => string
 }

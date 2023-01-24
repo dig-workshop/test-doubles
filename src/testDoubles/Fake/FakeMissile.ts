@@ -1,6 +1,7 @@
 import {Missile} from "./Types";
+import fakeJson from '../../resources/fake.json'
 
-export class RealMissile implements Missile {
+export class FakeMissile implements Missile {
     password = ""
 
     passwordCheck() {
@@ -11,13 +12,9 @@ export class RealMissile implements Missile {
         }
     }
 
-    async fire() {
-
-        // 天気をAPIで取得
-        const nowWeather = await fetch("https://weather.tsukumijima.net/api/forecast/city/230010")
-            .then((response) => response.json()).then((user) => {
-                return user.forecasts[0].telop
-            })
+    fire() {
+        // Fakeは実際のAPIを使用しない（このjsonで取得できる値は "晴れ"）
+        const nowWeather = fakeJson.forecasts[0].telop
 
         // パスワードと天気によって発射するかしないかを決める
         if (nowWeather !== "雨") {
@@ -25,8 +22,8 @@ export class RealMissile implements Missile {
         } else {
             return "ミサイルを発射できません"
         }
-
     }
+
     selfDestruction() {
         return "自爆しました"
     }

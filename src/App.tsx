@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {RealMissile} from "./RealMissile";
-import {LaunchMissileImpl} from "./answer/AnswerLaunchMissile";
+import {LaunchMissileImpl} from "./RealLaunchMissile";
 
 function App() {
     async function launchButtonClick() {
@@ -13,8 +13,8 @@ function App() {
         const launchMissile = new LaunchMissileImpl(realMissile)
         const launchResult = await launchMissile.launch()!
 
-        // 発射されたら発射ムービー
-        if (launchResult === true) {
+        // ミサイルが発射されたら発射ムービー
+        if (launchResult === "ミサイルを発射しました") {
             const missileVideo = document.getElementById("missileR18") as HTMLIFrameElement
             // const missileVideo = document.getElementById("missileR6") as HTMLIFrameElement
             missileVideo.src += '?autoplay=1';
