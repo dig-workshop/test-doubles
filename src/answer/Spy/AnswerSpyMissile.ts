@@ -5,9 +5,7 @@ export class AnswerSpyMissile implements AnswerMissile {
     passwordCheck_isCalled = false
     passwordCheck_returnValue = ""
     fire_isCalled = false
-    fire_returnValue = ""
     selfDestruction_isCalled = false
-    selfDestruction_returnValue = ""
 
     passwordCheck(): string {
         this.passwordCheck_isCalled = true
@@ -16,11 +14,11 @@ export class AnswerSpyMissile implements AnswerMissile {
 
     fire(): string {
         this.fire_isCalled = true
-        return this.fire_returnValue
+        return 'ミサイルを発射しました'
     }
 
     selfDestruction(): string {
         this.selfDestruction_isCalled = true
-        return this.selfDestruction_returnValue
+        return '自爆しました'
     }
 }

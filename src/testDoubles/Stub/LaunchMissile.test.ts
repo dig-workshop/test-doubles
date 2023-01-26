@@ -5,7 +5,7 @@ import {LaunchMissileImpl} from "./LaunchMissile";
 // 挙動というのは「メソッドの戻り値」や「 public なプロパティの値」のことです。
 // 特定の状況下でのテストがやりやすくなります。
 describe('スタブのテスト', () => {
-    it('AnswerLaunchMissileImpl（ミサイル発射装置）に StubTrueMissile（発射可能なミサイル）をセットして launchMissile.launch()を実行した場合の返り値が ミサイルを発射しました になること', () => {
+    it('LaunchMissileImpl（ミサイル発射装置）に StubTrueMissile（発射可能なミサイル）をセットして launchMissile.launch()を実行した場合の返り値が ミサイルを発射しました になること', () => {
         const stubTrueMissile = new StubTrueMissile()
         const launchMissile = new LaunchMissileImpl(stubTrueMissile)
 
