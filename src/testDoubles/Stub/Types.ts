@@ -1,5 +1,5 @@
-export type Missile = {
-    passwordCheck: () => string
+export type Password = {
+    isValid: boolean
 }
 
 export type LaunchMissileSystem = {

@@ -18,7 +18,6 @@ export class AnswerMockMissile implements AnswerMissile {
 
     fire() {
         this.fire_isCalled = true
-        this.checkedFire()
         return "ミサイルを発射しました"
     }
 

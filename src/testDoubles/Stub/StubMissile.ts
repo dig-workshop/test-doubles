@@ -1,11 +1,11 @@
-import {Missile} from "./Types";
+import {Password} from "./Types";
 
-export class StubTrueMissile implements Missile {
+export class ValidPassword implements Password {
+    isValid = true
     // ここにコードを記述して下さい
 
 }
 
-export class StubFalseMissile implements Missile {
-    // ここにコードを記述して下さい
-
+export class InvalidPassword implements Password {
+    isValid = false
 }

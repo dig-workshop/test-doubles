@@ -2,8 +2,8 @@ import {Missile} from "./Types";
 
 export class DummyMissile implements Missile {
 
-    passwordCheck() {
+    launch() {
         // ここにコードを記述して下さい
-
+        throw new Error("これはダミーミサイルです")
     }
 }
