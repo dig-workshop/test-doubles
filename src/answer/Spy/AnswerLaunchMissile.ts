@@ -8,13 +8,19 @@ export class AnswerLaunchMissileImpl implements AnswerLaunchMissileSystem {
     }
 
     launch() {
-        const passwordCheckResult = this.missile.passwordCheck()
-
-        if (passwordCheckResult === "正しいパスワード") {
-            return this.missile.fire()
-        } else {
-            return this.missile.selfDestruction()
-        }
+        // if (this.passwordCheck() === true) {
+            this.missile.fire()
+        // } else {
+        //     return this.missile.selfDestruction()
+        // }
     }
+
+    // passwordCheck() {
+    //     if (this.password === "black300") {
+    //         return true
+    //     } else {
+    //         return false
+    //     }
+    // }
 
 }

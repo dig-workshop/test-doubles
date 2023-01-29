@@ -1,5 +1,5 @@
 export type AnswerMissile = {
-    passwordCheck: () => string
+    fire: () => string
 }
 
 export type AnswerLaunchMissileSystem = {

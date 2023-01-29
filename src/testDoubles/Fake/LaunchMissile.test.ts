@@ -16,4 +16,5 @@ describe('フェイクのテスト', () => {
 
         expect(launchMissile.launch()).toBe("ミサイルを発射しました")
     });
+
 })

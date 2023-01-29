@@ -1,13 +1,13 @@
 import {AnswerMissile} from "./AnswerTypes";
 
 export class AnswerStubTrueMissile implements AnswerMissile {
-    passwordCheck(): string {
-        return "正しいパスワードです"
+    fire(): string {
+        return "ミサイルを発射しました"
     }
 }
 
 export class AnswerStubFalseMissile implements AnswerMissile {
-    passwordCheck(): string {
-        return "不正なパスワードです"
+    fire(): string {
+        return "ミサイルを発射できません"
     }
 }

@@ -4,17 +4,21 @@ import {AnswerLaunchMissileImpl} from "./AnswerLaunchMissile";
 describe('モックのテスト', () => {
     it('正しいpasswordが設定されている場合、ミサイルを発射して自爆はしないこと', () => {
         const mockMissile = new AnswerMockMissile()
-        mockMissile.password = "black300"
+        const password = "black300"
 
-        const launchMissile = new AnswerLaunchMissileImpl(mockMissile)
+        const launchMissile = new AnswerLaunchMissileImpl(mockMissile, password)
         launchMissile.launch()
+
+       mockMissile.checkedFire()
     });
 
     it('不正なpasswordが設定されている場合、ミサイルを発射せず自爆すること', () => {
         const mockMissile = new AnswerMockMissile()
-        mockMissile.password = "white200"
+        const password = "white200"
 
-        const launchMissile = new AnswerLaunchMissileImpl(mockMissile)
+        const launchMissile = new AnswerLaunchMissileImpl(mockMissile, password)
         launchMissile.launch()
+
+        mockMissile.checkedSelfDestruction()
     });
 })

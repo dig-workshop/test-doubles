@@ -2,18 +2,26 @@ import {AnswerLaunchMissileSystem, AnswerMissile} from "./AnswerTypes";
 
 export class AnswerLaunchMissileImpl implements AnswerLaunchMissileSystem {
     missile: AnswerMissile
+    password: string
 
-    constructor(missile: AnswerMissile) {
+    constructor(missile: AnswerMissile, password: string) {
         this.missile = missile
+        this.password = password
     }
 
     launch() {
-        const passwordCheckResult = this.missile.passwordCheck()
-
-        if (passwordCheckResult === "正しいパスワード") {
+        if (this.passwordCheck() === true) {
             return this.missile.fire()
         } else {
             return this.missile.selfDestruction()
+        }
+    }
+
+    passwordCheck() {
+        if (this.password === "black300") {
+            return true
+        } else {
+            return false
         }
     }
 
