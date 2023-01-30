@@ -1,10 +1,11 @@
 import {LaunchMissileSystem, Missile} from "./Types";
 
 export class LaunchMissileImpl implements LaunchMissileSystem {
-    missile: Missile
+    // ここにコードを記述して下さい
 
     constructor(missile: Missile) {
-        this.missile = missile
+        // ここにコードを記述して下さい
+
     }
 
     launch() {

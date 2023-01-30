@@ -2,15 +2,15 @@ import {LaunchMissileSystem, Missile} from "./Types";
 
 export class LaunchMissileImpl implements LaunchMissileSystem {
     missile: Missile
+    password: string
 
-    constructor(missile: Missile) {
+    constructor(missile: Missile, password: string) {
         this.missile = missile
+        this.password = password
     }
 
     launch() {
-        const passwordCheckResult = this.missile.passwordCheck()
-
-        if (passwordCheckResult === "正しいパスワード") {
+        if (this.password=== "black300") {
             return this.missile.fire()
         } else {
             return this.missile.selfDestruction()

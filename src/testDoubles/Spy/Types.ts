@@ -1,13 +1,12 @@
+import {AnswerMissile} from "../../answer/Spy/AnswerTypes";
+
 export type Missile = {
-    passwordCheck: () => string
-
-    // 随時コメントアウトを解除して進めて下さい
-    // fire: () => string　
-
-    // 随時コメントアウトを解除して進めて下さい
-    // selfDestruction: () => string
+    fire: () => void　
+    selfDestruction: () => void
 }
 
 export type LaunchMissileSystem = {
-    launch: () => string
+    password: string
+    missile: AnswerMissile
+    launch: () => void
 }

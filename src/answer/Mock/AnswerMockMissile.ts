@@ -14,12 +14,12 @@ export class AnswerMockMissile implements AnswerMissile {
         return "自爆しました"
     }
 
-    checkedFire() {
+    verifyFire() {
         expect(this.fire_isCalled).toBe(true)
         expect(this.selfDestruction_isCalled).toBe(false)
     }
 
-    checkedSelfDestruction() {
+    verifySelfDestruction() {
         expect(this.fire_isCalled).toBe(false)
         expect(this.selfDestruction_isCalled).toBe(true)
     }

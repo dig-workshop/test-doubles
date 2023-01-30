@@ -4,6 +4,7 @@ export type AnswerMissile = {
 }
 
 export type AnswerLaunchMissileSystem = {
+    password: string
+    missile: AnswerMissile
     launch: () => string
-    passwordCheck: () => boolean
 }

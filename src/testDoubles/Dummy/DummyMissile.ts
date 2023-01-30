@@ -2,7 +2,7 @@ import {Missile} from "./Types";
 
 export class DummyMissile implements Missile {
 
-    passwordCheck() {
+    fire() {
         // ここにコードを記述して下さい
 
     }

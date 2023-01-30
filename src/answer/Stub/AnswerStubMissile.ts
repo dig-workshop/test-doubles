@@ -1,13 +1,12 @@
 import {AnswerMissile} from "./AnswerTypes";
 
-export class AnswerStubTrueMissile implements AnswerMissile {
-    fire(): string {
+export class AnswerStubMissile implements AnswerMissile {
+
+    fire() {
         return "ミサイルを発射しました"
     }
-}
 
-export class AnswerStubFalseMissile implements AnswerMissile {
-    fire(): string {
-        return "ミサイルを発射できません"
+    selfDestruction() {
+        return "自爆しました"
     }
 }

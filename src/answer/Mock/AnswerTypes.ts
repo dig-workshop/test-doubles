@@ -1,9 +1,10 @@
 export type AnswerMissile = {
-    fire: () => string
-    selfDestruction: () => string
+    fire: () => void
+    selfDestruction: () => void
 }
 
 export type AnswerLaunchMissileSystem = {
-    launch: () => string
-    passwordCheck: () => boolean
+    password: string
+    missile: AnswerMissile
+    launch: () => void
 }

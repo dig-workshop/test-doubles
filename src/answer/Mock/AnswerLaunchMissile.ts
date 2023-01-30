@@ -10,19 +10,10 @@ export class AnswerLaunchMissileImpl implements AnswerLaunchMissileSystem {
     }
 
     launch() {
-        if (this.passwordCheck() === true) {
-            return this.missile.fire()
-        } else {
-            return this.missile.selfDestruction()
-        }
-    }
-
-    passwordCheck() {
         if (this.password === "black300") {
-            return true
+            this.missile.fire()
         } else {
-            return false
+            this.missile.selfDestruction()
         }
     }
-
 }

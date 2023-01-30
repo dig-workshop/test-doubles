@@ -4,7 +4,6 @@ export class AnswerFakeMissile implements AnswerMissile {
     nowWeather = ""
 
     fire() {
-        // パスワードと天気によって発射するかしないかを決める
         if (this.nowWeather !== "雨") {
             return "ミサイルを発射しました"
         } else {

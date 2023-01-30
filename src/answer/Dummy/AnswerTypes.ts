@@ -3,5 +3,6 @@ export type AnswerMissile = {
 }
 
 export type AnswerLaunchMissileSystem = {
+    missile: AnswerMissile
     launch: () => void
 }

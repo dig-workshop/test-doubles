@@ -1,7 +1,8 @@
 export type Missile = {
-    passwordCheck: () => void
+    fire: () => void
 }
 
 export type LaunchMissileSystem = {
+    missile: Missile
     launch: () => void
 }
