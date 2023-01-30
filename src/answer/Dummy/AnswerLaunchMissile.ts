@@ -8,6 +8,6 @@ export class AnswerLaunchMissileImpl implements AnswerLaunchMissileSystem {
     }
 
     launch() {
-        this.missile.passwordCheck()
+        this.missile.fire()
     }
 }
