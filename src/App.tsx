@@ -7,11 +7,12 @@ function App() {
     async function launchButtonClick() {
         // 本物のミサイルの準備
         const realMissile = new RealMissile()
-        realMissile.password = "black300"
 
         // ミサイルを発射装置にセット
-        const launchMissile = new LaunchMissileImpl(realMissile)
-        const launchResult = await launchMissile.launch()!
+        const inputElement = document.getElementById("input") as HTMLInputElement
+        const password = inputElement.value
+        const launchMissile = new LaunchMissileImpl(realMissile, password)
+        const launchResult = await launchMissile.launch()
 
         // ミサイルが発射されたら発射ムービー
         if (launchResult === "ミサイルを発射しました") {
@@ -23,7 +24,17 @@ function App() {
             buttonElement.style.display = "none"
             const textElement = document.getElementById("buttonText") as HTMLButtonElement
             textElement.style.display = "none"
-        } else if ("自爆しました") {
+            inputElement.style.display = "none"
+        } else if (launchResult === "ミサイルを発射できません") {
+            const missileVideo = document.getElementById("missileR6") as HTMLIFrameElement
+            missileVideo.src += '?autoplay=1';
+            missileVideo.hidden = false
+            const buttonElement = document.getElementById("button") as HTMLAnchorElement
+            buttonElement.style.display = "none"
+            const textElement = document.getElementById("buttonText") as HTMLButtonElement
+            textElement.style.display = "none"
+            inputElement.style.display = "none"
+        } else {
             const missileVideo = document.getElementById("destructionR12") as HTMLIFrameElement
             missileVideo.src += '?autoplay=1';
             missileVideo.hidden = false
@@ -31,6 +42,7 @@ function App() {
             buttonElement.style.display = "none"
             const textElement = document.getElementById("buttonText") as HTMLButtonElement
             textElement.style.display = "none"
+            inputElement.style.display = "none"
         }
     }
 
@@ -56,15 +68,22 @@ function App() {
                     allowFullScreen
                     hidden={true}>
             </iframe>
-            {/*<iframe className="iframe"  id="missileR6" width="560" height="315" src="https://www.youtube.com/embed/KGCEHeyX5zo?start=1"*/}
-            {/*        title="YouTube video player" frameBorder="0"*/}
-            {/*        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"*/}
-            {/*        allowFullScreen></iframe>*/}
+            <iframe className="iframe"
+                    id="missileR6"
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/KGCEHeyX5zo"
+                    title="YouTube video player" frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    hidden={true}>
+            </iframe>
             <a id="button" onClick={launchButtonClick} className="btn-emergency-real">
                 <span className="btn-emergency-real-bottom"></span>
                 <span className="btn-emergency-real-top"><span>発射</span></span>
             </a>
             <div id={"buttonText"} style={{fontSize: "100px;"}}>絶対に押すなよ！</div>
+            <input id="input" type="text" placeholder="ここにパスワードを入力"></input>
         </div>
     );
 }

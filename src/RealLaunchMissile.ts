@@ -1,17 +1,17 @@
-import {LaunchMissileSystem, Missile} from "./Types";
+import {Missile, RealLaunchMissileSystem} from "./Types";
 
-export class LaunchMissileImpl implements LaunchMissileSystem {
+export class LaunchMissileImpl implements RealLaunchMissileSystem {
     missile: Missile
+    password: string
 
-    constructor(missile: Missile) {
+    constructor(missile: Missile, password: string) {
         this.missile = missile
+        this.password = password
     }
 
-    launch() {
-        const passwordCheckResult = this.missile.passwordCheck()
-
-        if (passwordCheckResult === "正しいパスワード") {
-            return this.missile.fire()
+    async launch() {
+        if (this.password === "black300") {
+            return await this.missile.fire()
         } else {
             return this.missile.selfDestruction()
         }
