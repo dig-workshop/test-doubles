@@ -1,12 +1,15 @@
 import {AnswerMissile} from "./AnswerTypes";
 
 export class AnswerStubMissile implements AnswerMissile {
+    fire_returnValue = ""
+    selfDestruction_returnValue = ""
 
     fire() {
-        return "ミサイルを発射しました"
+        return this.fire_returnValue
     }
 
+
     selfDestruction() {
-        return "自爆しました"
+        return this.selfDestruction_returnValue
     }
 }

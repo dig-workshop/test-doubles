@@ -11,6 +11,7 @@ describe('LaunchMissileImpl（ミサイル発射装置）に StubTrueMissile（�
     it('パスワードが正しかったら、返り値が ミサイルを発射しました になること', () => {
         const stubMissile = new StubMissile()
         const password = "black300"
+        stubMissile.fire_returnValue = "ミサイルを発射しました"
         const launchMissile = new LaunchMissileImpl(stubMissile, password)
 
         expect(launchMissile.launch()).toBe("ミサイルを発射しました")
@@ -19,6 +20,7 @@ describe('LaunchMissileImpl（ミサイル発射装置）に StubTrueMissile（�
     it('パスワードが正しくなかったら、返り値が 自爆しました になること', () => {
         const stubMissile = new StubMissile()
         const password = "white200"
+        stubMissile.selfDestruction_returnValue = "自爆しました"
         const launchMissile = new LaunchMissileImpl(stubMissile, password)
 
         expect(launchMissile.launch()).toBe("自爆しました")

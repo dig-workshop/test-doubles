@@ -5,17 +5,19 @@ import {AnswerLaunchMissileImpl} from "./AnswerLaunchMissile";
 describe('AnswerLaunchMissileImpl（ミサイル発射装置）に Missile をセットしてミサイル発射指示（launchMissile.launch）をした場合', () => {
 
     it('パスワードが正しかったら、返り値が "ミサイルを発射しました" になること', () => {
-        const stubTrueMissile = new AnswerStubMissile()
+        const stubMissile = new AnswerStubMissile()
         const password = "black300"
-        const launchMissile = new AnswerLaunchMissileImpl(stubTrueMissile, password)
+        stubMissile.fire_returnValue = "ミサイルを発射しました"
+        const launchMissile = new AnswerLaunchMissileImpl(stubMissile, password)
 
         expect(launchMissile.launch()).toBe("ミサイルを発射しました")
     });
 
     it('パスワードが正しくなかったら、返り値が "自爆しました" になること', () => {
-        const stubFalseMissile = new AnswerStubMissile()
+        const stubMissile = new AnswerStubMissile()
         const password = "white200"
-        const launchMissile = new AnswerLaunchMissileImpl(stubFalseMissile, password)
+        stubMissile.selfDestruction_returnValue = "自爆しました"
+        const launchMissile = new AnswerLaunchMissileImpl(stubMissile, password)
 
         expect(launchMissile.launch()).toBe("自爆しました")
     });
