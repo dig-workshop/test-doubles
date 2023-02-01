@@ -1,6 +1,5 @@
 import {DummyMissile} from './DummyMissile'
 import {LaunchMissileImpl} from './LaunchMissile'
-import StubPasswordProvider from './StubPasswordProvider'
 
 // スタブのテストでは、説明の簡略化のためにlaunchが文字列を返す仕様にしていました。
 // ですが、本来はLaunchMissileImplが何かしらMissileというオブジェクトに対して、操作を与えた結果ミサイルが発射されるべきです。
@@ -12,14 +11,10 @@ import StubPasswordProvider from './StubPasswordProvider'
 
 describe('LaunchMissileImpl（ミサイル発射装置）のテスト', () => {
     it('間違ったパスワードが返った場合、fireは実行されない', () => {
-        // 間違ったパスワードが帰るようにStubに返り値をセットする
-        const stubPasswordProvider = new StubPasswordProvider()
-        const invalidPassword = 'white300'
-        stubPasswordProvider.getValue_returnValue = Promise.resolve(invalidPassword)
-
         // 使うとエラーを出力するミサイル
+        const invalidPassword = 'white300'
         const dummyMissile = new DummyMissile()
-        const launchMissile = new LaunchMissileImpl(dummyMissile, stubPasswordProvider)
+        const launchMissile = new LaunchMissileImpl(dummyMissile, invalidPassword)
 
         // ミサイルが発射されていなければエラーが出ず、テストが通るはず
         launchMissile.launch()
