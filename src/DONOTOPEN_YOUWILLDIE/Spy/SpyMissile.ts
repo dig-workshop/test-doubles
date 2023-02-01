@@ -1,8 +1,9 @@
 import {Missile} from "./Types";
 
-// 正しくSpyの役割を果たすように書き換えてください
 export class SpyMissile implements Missile {
+    // ここにコードを記述して下さい
     fire_wasCalled = false
     fire() {
+        this.fire_wasCalled = true
     }
 }

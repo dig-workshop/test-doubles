@@ -1,16 +1,15 @@
-import {LaunchMissileSystem, Missile} from "./Types";
+import {LaunchMissileSystem, WeatherRepository} from './Types'
+
 
 export class LaunchMissileImpl implements LaunchMissileSystem {
-    password: string
-    missile: Missile
+    weatherRepository: WeatherRepository
 
-    constructor(missile: Missile, password: string) {
-        this.password = password
-        this.missile = missile
+    constructor(weatherRepository: WeatherRepository) {
+        this.weatherRepository = weatherRepository
     }
 
-    launch() {
-        // ここにコードを記述して下さい
-
+    async launch(): Promise<string> {
+        // テストが通るように書き換えてください
+        return Promise.resolve('')
     }
 }

@@ -1,25 +1,18 @@
 import {Missile} from "./Types";
 
+// Mockの役割を果たすように書き換えてください
 export class MockMissile implements Missile {
-    // ここにコードを記述して下さい
-
-    fire() {
-        // ここにコードを記述して下さい
-
+    private fire_wasCalled = false
+    fire(): void {
     }
 
-    selfDestruction() {
-        // ここにコードを記述して下さい
-
+    private disable_wasCalled = false
+    disable(): void {
     }
 
     verifyFire() {
-        // ここにコードを記述して下さい
-
     }
 
-    verifySelfDestruction() {
-        // ここにコードを記述して下さい
-
+    verifyDisable() {
     }
 }

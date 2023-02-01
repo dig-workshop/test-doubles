@@ -3,7 +3,7 @@ export type Missile = {
 }
 
 export type LaunchMissileSystem = {
-    missile: Missile
     password: string
+    missile: Missile
     launch: () => void
 }

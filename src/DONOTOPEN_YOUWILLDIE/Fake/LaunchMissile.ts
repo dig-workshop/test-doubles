@@ -10,10 +10,14 @@ export class LaunchMissileImpl implements LaunchMissileSystem {
     }
 
     login(userId: string) {
-        // テストが通るように実装してください
+        this.authServer.login(userId)
     }
 
     async launchBy(userId: string) {
-        // テストが通るように実装してください
+        const user = await this.authServer.getUser(userId)
+        if (user !== undefined) {
+            this.missile.fire()
+        }
     }
+
 }

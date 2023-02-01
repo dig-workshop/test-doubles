@@ -1,4 +1,4 @@
-import {LaunchMissileSystem, Missile} from './Types'
+import {LaunchMissileSystem, Missile} from "./Types";
 
 export class LaunchMissileImpl implements LaunchMissileSystem {
     missile: Missile
@@ -10,6 +10,11 @@ export class LaunchMissileImpl implements LaunchMissileSystem {
     }
 
     launch() {
-        // テストが通るように実装してください
+        // ここにコードを記述して下さい
+        if (this.password === 'black300') {
+            this.missile.fire()
+        } else {
+            this.missile.disable()
+        }
     }
 }
